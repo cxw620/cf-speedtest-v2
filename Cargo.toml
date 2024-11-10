@@ -1,0 +1,48 @@
+[package]
+name = "cf-speedtest-v2"
+version = "0.1.0"
+edition = "2021"
+authors = ["Hantong Chen <cxwdyx620@gmail.com>"]
+license = "MIT"
+
+[package.metadata.release]
+release = false
+
+# https://github.com/rustwasm/wasm-pack/issues/1247
+[package.metadata.wasm-pack.profile.release]
+wasm-opt = false
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+worker = "0.4"
+worker-macros = "0.4"
+console_error_panic_hook = "0.1"
+
+[profile.release]
+opt-level = 3
+lto = true
+codegen-units = 1
+debug = false
+
+# === Lints ===
+[lints.rust]
+unsafe_code = "warn"
+missing_docs = "warn"
+missing_debug_implementations = "warn"
+unreachable_pub = "warn"
+
+[lints.clippy]
+await_holding_lock = "warn"
+dbg_macro = "warn"
+doc_markdown = "warn"
+empty_enum = "warn"
+enum_glob_use = "warn"
+inefficient_to_string = "warn"
+mem_forget = "warn"
+mutex_integer = "warn"
+needless_continue = "warn"
+todo = "warn"
+unimplemented = "warn"
+wildcard_imports = "warn"
