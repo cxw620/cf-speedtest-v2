@@ -128,7 +128,7 @@ checksum = "9ac0150caa2ae65ca5bd83f25c7de183dea78d4d366469f148435e2acfbad0da"
 
 [[package]]
 name = "cf-speedtest-backend"
-version = "0.2.0-alpha.1"
+version = "0.2.0"
 dependencies = [
  "axum",
  "cf-speedtest-v2",
@@ -142,7 +142,7 @@ dependencies = [
 
 [[package]]
 name = "cf-speedtest-v2"
-version = "0.2.0-alpha.1"
+version = "0.2.0"
 dependencies = [
  "console_error_panic_hook",
  "worker",
