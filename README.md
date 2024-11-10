@@ -12,7 +12,9 @@ See `wrangler`'s docs for more details.
 
 ## Deploy
 
-`npx wrangler deploy`
+For Cloudflare Workers, just run `npx wrangler deploy`.
+
+To build locally, run `cargo build --package cf-speedtest-backend --release` and goto `target/release` to get the executable file.
 
 ## License
 
