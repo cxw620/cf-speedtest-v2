@@ -21,8 +21,6 @@ static VERSION: &str = include_str!(concat!(env!("OUT_DIR"), "/VERSION"));
 async fn fetch(req: Request, _env: Env, _ctx: Context) -> Result<Response> {
     console_error_panic_hook::set_once();
 
-    console_debug!("accept request: {:#?}", &req);
-
     let body = match req.path().as_str() {
         "/50mb.test" => BR_50M_BYTE,
         "/100mb.test" => BR_100M_BYTE,
@@ -31,7 +29,7 @@ async fn fetch(req: Request, _env: Env, _ctx: Context) -> Result<Response> {
         "/500mb.test" => BR_500M_BYTE,
         "/1gb.test" => BR_1G_BYTE,
         _ => {
-            console_warn!("unknown request path");
+            console_warn!("Unknown request path: {:?}", &req);
             return Response::error(String::new(), 404);
         }
     };
